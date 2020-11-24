@@ -1,12 +1,22 @@
 import "./app.css";
 import React from "react";
-import { withBookstoreService } from "../hoc";
+import { Route, Switch } from "react-router-dom";
+import { HomePage, CartPage } from "../pages";
 
-const App = ({bookstoreService}) => {
-  console.log(bookstoreService.getBooks());
+const App = () => {
   return (
-    <h3>App</h3>
+    <Switch>
+      <Route
+        path="/"
+        component={HomePage}
+        exact
+      />
+      <Route
+        path="/cart"
+        component={CartPage}
+      />
+    </Switch>
   );
 };
 
-export default withBookstoreService()(App);
+export default App;

@@ -1,5 +1,3 @@
-import bookstoreService from "../services/bookstore-service";
-
 const booksLoaded = (newBooks) => {
   return {
     type: "FETCH_BOOKS_SUCCESS",
@@ -41,7 +39,7 @@ const allBooksRemoveFromCart = (bookId) => {
   };
 };
 
-const fetchBooks = (bookstoreService, dispatch) => () => {
+const fetchBooks = (bookstoreService) => () => (dispatch) => {
   dispatch(booksRequested());
   bookstoreService.getBooks()
     .then((data) => dispatch(booksLoaded(data)))
